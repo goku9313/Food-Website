@@ -1,0 +1,33 @@
+extends base.pug
+block fontAndCSS
+    link(href='https://fonts.googleapis.com/css2?family=Exo+2:ital@0;1&family=Lobster&display=swap' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='/css/cartPage.css')
+block optionalCSS
+block optionalJS
+    script(src='/js/cart.js' defer='')
+block header
+    include nav-for-everything.pug
+block content
+    .main
+        - var totalCost=0;
+        .left-side
+            p.shopping-cart-text Shopping Cart
+            for object in plans
+                - totalCost+=object.plan.price*object.quantity;
+                .product-container
+                    img.cross(src=`/images/cross.png` alt='' planid=`${object.plan._id}` cost=`${object.plan.price}`)
+                    img.product-image(src=`${object.plan.cover}`, alt='')
+                    .secondary-container
+                        .price-change-container
+                            img.increase.quantity(src=`/images/left.png` alt='' planid=`${object.plan._id}` cost=`${object.plan.price}`)
+                            p.product-quantity #{object.quantity}
+                            img.decrease.quantity(src='/images/right.png' alt='' planid=`${object.plan._id}` cost=`${object.plan.price}`)
+                        em
+                            span.price-plan #{object.plan.price}$
+                        p.product-name #{object.plan.name}
+        .right-side
+            p.checkout-text Total:
+            span.totalCost(totalCost=`${totalCost}`) #{totalCost}$
+            .checkout-btn
+                p.checkout-btn-text Check Out

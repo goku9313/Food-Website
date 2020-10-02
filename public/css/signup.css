@@ -1,0 +1,157 @@
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.main {
+    display: flex;
+    height: 92vh;
+    width: 1260px;
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+    overflow: hidden;
+}
+
+.slideshow {
+    width: 50%;
+}
+
+.img {
+    height: auto;
+    width: 100%;
+}
+
+.signup {
+    position: relative;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    flex-direction: column;
+}
+
+.top {
+    position: absolute;
+    color: white;
+    padding-bottom: 5rem;
+    top: 10vh;
+}
+
+.sign {
+    font-size: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: 150ms all ease;
+}
+
+.selected {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+form {
+    width: 70%;
+    transition: all 500ms ease;
+}
+
+.field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.text {
+    color: white;
+    margin-top: 1rem;
+}
+
+.input2 {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #00000036;
+    width: 100%;
+    height: 2rem;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+}
+
+.input2::placeholder {
+    color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+.input2:focus {
+    outline: none;
+}
+
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.pw {
+    color: black;
+    display: none;
+    cursor: pointer;
+    float: right;
+    margin-top: 1rem;
+}
+
+.forgot {
+    color: black;
+    text-decoration-line: none;
+}
+
+.forgot:visited {
+    color: black;
+}
+
+button[type="submit"] {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    font-size: 18px;
+    height: fit-content;
+}
+
+@media(max-width:1400px) {
+    .main {
+        width: 100vw;
+    }
+
+    .img {
+        display: none;
+    }
+
+    form {
+        width: 20rem;
+        padding-top: 4rem;
+    }
+
+    .slideshow {
+        display: none;
+    }
+
+    .signup {
+        width: 100%;
+    }
+}

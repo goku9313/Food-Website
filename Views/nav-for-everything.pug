@@ -1,0 +1,44 @@
+link(rel='stylesheet' href='/css/nav-for-everything.css')
+link(href='https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap' rel='stylesheet')
+link(href='https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&family=Carter+One&display=swap' rel='stylesheet')
+.header
+    a.home-main.cursor(href='/')
+        img.home(src='/images/Free_Sample_By_Wix.jpg' alt='')
+        p.hometag Food Website
+    .search-bar
+        input.search(type='text')
+        span.find.cursor
+            i.fas.fa-search
+    .nav-packet
+        if user
+            a.image-nav.cursor(href='/likedItems')
+                img.liked.nav-image(src='/images/heart.png' alt='')
+            a.image-nav.cursor(href='/cart')
+                img.cart.nav-image(src='./images/cart.png' alt='')
+        else
+            a.image-nav.cursor(href='/login')
+                img.liked.nav-image(src='/images/heart.png' alt='')
+            a.image-nav.cursor(href='/login')
+                img.cart.nav-image(src='./images/cart.png' alt='')
+
+    if(user)
+        .user
+            img.user-photo(src=`${user.profileImage}` alt='')
+            p.cursor.usertag #{user.name}
+            .drop-down-menu
+                .profileList
+                    a.profile-item(href='/profile')
+                        i.fas.fa-user
+                        |Profile
+                    hr.dropHr
+                    a.profile-item(href='/cart')
+                        i.fas.fa-shopping-cart
+                        |Cart
+                    hr.dropHr
+                    a.profile-item(href='/logout')
+                        i.fas.fa-sign-out-alt
+                        |Logout
+    else
+        .signin-signup
+            a.signin-signup-tag(href='/signup') Sign Up / Log In  
+script(src='/js/nav-for-everything.js')

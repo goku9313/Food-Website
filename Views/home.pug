@@ -1,0 +1,152 @@
+extends base.pug
+block content
+    .first-part
+        .back
+            .heading
+                h1 MEAL PLANS.
+                h1
+                    | FOR 
+                    span.tags EVERYONE
+                a.top-links(href='') Book Now
+                a.top-links(href='') Show me more
+    #features.second-part
+        h2.second-head AWESOME FEATURES
+        .features
+            .box
+                img.icon(src='./images/calendar.png' alt='calender')
+                h3.feat-h 365 DAYS/YEAR
+                p.feat-p
+                    | Never cook again! We really mean that. Our subscription plans include upto 365
+                    | days/year coverage.
+                    | You can also choose to order more flexibly if that's your style.
+            .box
+                img.icon(src='./images/delivery.png' alt='delivery')
+                h3.feat-h 30 MINUTES OR FREE
+                p.feat-p
+                    | You're only twenty minutes away from your delicious and super healthy meals delivered
+                    | right to your home.
+                    | We work with the best chefs in each town to ensure that you're 100% happy.
+            .box
+                img.icon(src='./images/food.png' alt='vegetable')
+                h3.feat-h 100% ORGANIC
+                p.feat-p
+                    | All our vegetables are fresh, orangic and local. Animals are raised without added
+                    | harmones or antibiotics.
+                    | Good for your health, the environment, and it also tastes better!
+    #details.third-part
+        h2.second-head STEPS TO FOLLOW
+        .steps
+            img.ui-photo(src='./images/UI.png' alt='ui photo')
+            ul.list2
+                li.li2
+                    .numbers 1
+                    p.p-second Choose the subscription plan that best fits your needs and sign up today.
+                li.li2
+                    .numbers 2
+                    p.p-second
+                        | Order your delicious meal using our mobile app or website. Or you can even call
+                        | us!
+                li.li2
+                    .numbers 3
+                    p.p-second Enjoy your meal after less than 20 minutes. See you the next time!
+    .fourth-part
+        .back4
+            h2#reviews.second-head(style='color: white;') REVIEWS
+            .review-container
+                .review
+                    .name DAVID SMITH
+                    .review-para
+                        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius similique,
+                        | labore
+                        | quod odit esse, adipisci autem illum eos repellat minima pariatur numquam cum amet perferendis
+                        | at
+                        | sapiente recusandae et libero?
+                    .stars
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+                .review
+                    .name DAVID SMITH
+                    .review-para
+                        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores eum
+                        | rerum,
+                        | sapiente perferendis, voluptatibus inventore ex eos facere architecto eius vel harum aspernatur
+                        | libero, iure ea! Impedit vero laudantium quis.
+                    .stars
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+                .review
+                    .name DAVID SMITH
+                    .review-para
+                        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quasi
+                        | itaque, sequi saepe voluptatibus inventore eaque dolor aliquam eveniet blanditiis ex ipsum
+                        | quisquam
+                        | cumque recusandae est placeat culpa atque? Harum!
+                    .stars
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+                        span ★
+    .extra-container
+        #plans.part-five
+            -let count=3;
+            for plan in plans
+                if(plan.price>30)
+                    -count--;
+                    .price-container
+                        p.header #{plan.name}
+                        p.text1
+                            span.price #{plan.price}$
+                            | /month
+                        p.text2 That's only #{plan.price/plan.duration}$ per meal
+                        hr
+                        ul.list3
+                            li
+                                span.tick ✔
+                                |  #{plan.duration} meal every month
+                            li
+                                span.tick ✔
+                                |  Order 24/7
+                            li
+                                span.tick ✔
+                                |  Access to newest creations
+                            li
+                                span.tick ✔
+                                |  Free delivery
+                        hr
+                        .hungry I'm hungry
+                    if(count==0)
+                        -break;
+        .view-all-plans
+            a(href="/plans" class="plans-link") View all Plans
+    #contact.part-six
+        img.gif(src='./images/sending.gif' alt='sending GIF')
+        form.form(action='')
+            label.field(for='name')
+                p.text3 Name
+                input#name.input(type='text' placeholder='Name' required='')
+            label.field(for='email')
+                p.text3 Email
+                input#email.input(type='text' placeholder='Email' required='')
+            label.field(for='sources')
+                p.text3 How did you find us ?
+                select#sources.input
+                    option.find-options(value='Friends') Friends
+                    option.find-options(value='Family') Family
+                    option.find-options(value='Advertisement') Advertisement
+            label.field(for='para')
+                p.text3 Drop us a line
+                textarea#para.input(style='height: 6rem;' placeholder='Your Message' required='')
+            label(for='#terms')
+                input#terms(type='checkbox' required='')
+                p.checker
+                    | I have read and agree with all the Privacy Policy and Terms
+                    | Conditions.
+            input.submit(type='submit')
+    script(src='/js/1st.js' defer='')

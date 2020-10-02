@@ -1,0 +1,51 @@
+extends base.pug
+block header
+    include nav-for-everything.pug
+block fontAndCSS
+    link(href='https://fonts.googleapis.com/css2?family=Exo+2:ital@0;1&family=Lobster&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='/css/plansPage.css')
+block optionalCSS
+block optionalJS
+    script(src='/js/plans.js' defer='')
+block content
+    #pop-up-block
+        span.tick-in-message
+            i.fas.fa-check-circle
+        p.pop-up-message Empty
+    #zoomed-in-photo
+        .cross-div
+            img.cross(src=`/images/cross.png` alt='')
+        .slideshow
+            img.left.slider(src=`/images/left.png` alt='')
+            img.zoomed-in-image(src='' alt='')
+            img.right.slider(src='/images/right.png' alt='')
+    #plans.part-five
+        for plan in plans
+            .plans-container
+                .images-container
+                    for images in plan.secondaryImages
+                        img.secondary-image(src=`${images}` alt='')
+                -if(user && user.liked.includes(plan._id))
+                    .like-button(planid=`${plan._id}` style='color:orangered;')
+                        i.fas.fa-heart
+                -else
+                    .like-button(planid=`${plan._id}`)
+                        i.fas.fa-heart
+                img.cover-pic(src=`${plan.cover}` alt='')
+                p.plan-header #{plan.name}
+                p.price-tag-text
+                    em
+                        span.price-plan #{plan.price}$
+                        | /month
+                p.price-per-meal.common-styles That's only #{plan.price/plan.duration}$ per meal
+                hr
+                ul.list-features.common-styles
+                    li.feature-ticks
+                        span.tick ✔
+                        |  #{plan.duration} meals every month
+                    for feature in plan.features
+                        li.feature-ticks
+                            span.tick ✔
+                            |  #{feature}
+                hr
+                .hungry(planid=`${plan._id}`) Add to cart

@@ -1,0 +1,40 @@
+extends base.pug
+block fontAndCSS
+    link(rel='stylesheet' href='/css/signup.css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
+block content
+    .main
+        .slideshow
+            img.img(src='/images/green-leafy-vegetable-dish-in-gray-steel-bowl-with-fork-842571.jpg' alt='')
+        .signup
+            p.top
+                span.sign Sign In
+                | or
+                span.sign.selected Sign Up
+            form(action='')
+                .field.name
+                    p.text FULL NAME
+                    input#name.input2(type='text' placeholder='Enter your full name' required='')
+                .field
+                    p.text E-MAIL
+                    input#email.input2(type='email' placeholder='Your e-mail goes here' required='')
+                .field
+                    p.text PASSWORD
+                    input#pw.input2(type='password' placeholder='••••••••' minlength='8' required='')
+                .field.confirmpw
+                    p.text CONFIRM PASSWORD
+                    input#pwChecker.input2(type='password' placeholder='••••••••' minlength='8' required='')
+                .check(style='display: flex;')
+                    input#checkbox(type='checkbox' placeholder='Email' required='')
+                    p.text3(style='margin-left: 1rem; color: white;')
+                        | I agree to all statements in 
+                        span(style='color: black; border-bottom: 1px solid black;cursor: pointer;')
+                            | Terms of
+                            | Service
+                .pw
+                    a.forgot(href='/forgetPassword') Forgot password ?
+                button.submit(type='submit') Sign Up
+    script(src='/js/sign.js')
+    if(login=="login")
+        script.
+            signIn.click();

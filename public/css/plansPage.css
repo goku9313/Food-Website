@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+#plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.plans-container {
+    position: relative;
+    margin: 2rem;
+    width: 30rem;
+    background-color: #222;
+    box-shadow: -2px 2px 5px 0px lightslategrey;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Exo 2', sans-serif;
+    overflow: hidden;
+}
+
+.like-button {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 2rem;
+    left: 2rem;
+    top: 2rem;
+    border-radius: 50%;
+    background-color: white;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+.cover-pic {
+    width: 100%;
+    height: 360px;
+    clip-path: polygon(100% 0%, 100% 210px, 0% 250px, 0% 0%);
+}
+
+.secondary-image {
+    width: 5rem;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 3;
+    top: 17rem;
+    left: 75%;
+    cursor: pointer;
+}
+
+.plan-header {
+    position: absolute;
+    font-size: 24px;
+    top: 17rem;
+    left: 1rem;
+    font-family: 'Lobster', cursive;
+}
+
+.price-tag-text {
+    position: absolute;
+    font-size: 22px;
+    left: 1rem;
+    top: 20rem;
+}
+
+.tick {
+    margin-right: 1rem;
+}
+
+.feature-ticks {
+    padding-top: 1rem;
+    display: flex;
+    text-align: justify;
+}
+
+.common-styles {
+    margin: 1rem;
+}
+
+.list-features {
+    list-style: none;
+}
+
+.hungry {
+    cursor: pointer;
+    text-align: center;
+    padding: 1rem;
+    transition: 200ms all ease;
+}
+
+.hungry:hover {
+    background-color: white;
+    color: black;
+}
+
+#zoomed-in-photo {
+    flex-direction: column;
+    background: #000000d9;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    display: none;
+}
+
+.cross-div {
+    width: 100%;
+    height: 4rem;
+}
+
+.cross {
+    float: right;
+    margin: 2rem;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.slideshow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.slider {
+    height: 4rem;
+    margin: 1rem;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.zoomed-in-image {
+    border-radius: 1rem;
+}
+
+#pop-up-block {
+    background-color: white;
+    display: none;
+    justify-content: space-evenly;
+    color: black;
+    position: fixed;
+    align-self: center;
+    top: 90%;
+    padding: 1rem;
+    z-index: 5;
+    border-radius: 3px;
+    align-items: center;
+    transition: top 500ms ease;
+}
+
+.pop-up-message {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    margin-left: 1rem;
+}
+
+.tick-in-message {
+    color: limegreen;
+    font-size: 22px;
+}

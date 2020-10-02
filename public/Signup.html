@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In/Sign Up</title>
+    <link rel="stylesheet" href="./css/signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <div class="slideshow">
+            <img src="./images/green-leafy-vegetable-dish-in-gray-steel-bowl-with-fork-842571.jpg" alt="" class="img">
+        </div>
+        <div class="signup">
+            <p class=top>
+                <span class="sign">Sign In</span>or<span class="sign selected">Sign Up</span>
+            </p>
+            <form action="">
+                <div class="field name">
+                    <p class="text">FULL NAME</p>
+                    <input type="text" id="name" class="input2" placeholder="Enter your full name" required>
+                </div>
+                <div class="field">
+                    <p class="text">E-MAIL</p>
+                    <input type="email" id="email" class="input2" placeholder="Your e-mail goes here" required>
+                </div>
+                <div class="field">
+                    <p class="text">PASSWORD</p>
+                    <input type="password" id="pw" class="input2"
+                        placeholder="&#8226&#8226&#8226&#8226&#8226&#8226&#8226&#8226" minlength="8" required>
+                </div>
+                <div class="field confirmpw">
+                    <p class="text">CONFIRM PASSWORD</p>
+                    <input type="password" id="pwChecker" class="input2"
+                        placeholder="&#8226&#8226&#8226&#8226&#8226&#8226&#8226&#8226" minlength="8" required>
+                </div>
+                <div class="check" style="display: flex;">
+                    <input type="checkbox" id="checkbox" placeholder="Email" required>
+                    <p class="text" style="margin-left: 1rem; color: white;">I agree to all statements in <span
+                            style="color: black; border-bottom: 1px solid black;cursor: pointer;">Terms of
+                            Service</span></p>
+                </div>
+                <div class="pw">
+                    <a href="/forgetPassword" class="forgot">Forgot password ?</a>
+                </div>
+                <button type="submit" class="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/sign.js"></script>
+</body>
+
+</html>

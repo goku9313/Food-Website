@@ -1,0 +1,131 @@
+extends base.pug
+block fontAndCSS
+    link(href='https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&family=Baloo+Tamma+2&display=swap' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='/css/profile.css')
+block optionalCSS
+block optionalJS
+block header
+    include nav-for-everything.pug
+block content
+    .main
+        .grid-container-left
+            .profile-header
+                .profilePic
+                    img.image-profile(src=`${user.profileImage}` alt='')
+                label.edit-pic-container(for='input-for-profile-pic')
+                    img.edit-pic(src='/images/image.png' alt='')
+                input#input-for-profile-pic(type='file' name='photo' accept='image/*')
+                .name #{user.name}
+                .balance-box
+                    .balance 0.00$
+                    p.balancetext Balance
+            .features-list-available
+                ul.features-list-user.features-list
+                    li.wallet.feature My Wallet
+                    li.orders.feature My Orders
+                    li.presonal-info.feature.link3 Edit Personal Info
+                    li.password-change.feature.link4 Change Password
+                    li.add-book.feature Address Book
+                    li.payments.feature Payment Methods
+                    li.add-plan.feature.admin.link7 Add Plan
+                    li.view-all-plans.feature.admin.link8 View all Plans
+                    li.update-p.feature.admin.link9 Update Plan
+                    li.delete-p.feature.admin.link10 Delete Plan
+                    li.help.feature Need Help?
+                    a.logout.feature(href='/logout')
+                        i.fas.fa-sign-out-alt
+                        |   Logout
+        .grid-container-right
+            .lds-dual-ring(style='visibility: hidden;opacity: 0;')
+            .open.main-right.welcome
+                p.top Welcome to your profile page
+            .update-plan.main-right.closed.link9
+                p.top Update Plan
+                form.update-form(action='')
+                    .field
+                        p.text Plan ID (Plan to be updated)
+                        input#idupdate.input2(type='text' placeholder='Enter plan ID' required='')
+                    .field
+                        p.text NAME
+                        input#plannameupdate.input2(type='text' placeholder='Enter plan name' required='')
+                    .field
+                        p.text Price(in $)
+                        input#priceupdate.input2(type='number' placeholder='Enter price' required='')
+                    .field
+                        p.text Average Rating
+                        input#ratingupdate.input2(type='number' placeholder='Enter average rating' required='' min='1' max='10')
+                    .field
+                        p.text Features List
+                        textarea#features-listupdate.input2(type='text' placeholder='Enter features list' required='')
+                    .field
+                        p.text Duration
+                        input#durationupdate.input2(type='number' placeholder='Enter plan duration' required='')
+                    .field
+                        p.text Discount
+                        input#discountupdate.input2(type='number' placeholder='Enter discount in $' value='0')
+                    button.submit(type='submit') Submit
+            .delete-plan.main-right.closed.link10
+                p.top Delete a Plan
+                form.delete-form(action='')
+                    .field
+                        p.text Enter the ID of the plan to be deleted
+                        input#planIDdelete.input2(type='text' placeholder='Plan ID' required='')
+                    button.submit(type='submit') Delete
+            .view-plans.main-right.closed.link8
+            .info-edit.main-right.closed.link3
+                p.top Edit Your Personal Information
+                form.edit-form(action='')
+                    .field
+                        p.text NAME
+                        input#username.input2(type='text' placeholder='Enter your name' required='')
+                    .field
+                        p.text Email
+                        input#email.input2(type='email' placeholder='Enter new Email ID' required='')
+                    button.submit-edit.submit(type='submit') Save
+            .pass-edit.main-right.closed.link4
+                p.top Edit Your Personal Information
+                form.pass-form(action='')
+                    .field
+                        p.text Password
+                        input#password.input2(type='password' placeholder='New password' minlength='8' required='')
+                    .field
+                        p.text Confirm Password
+                        input#confirmPW.input2(type='password' placeholder='Confirm new Password' minlength='8' required='')
+                    button.submit-pass.submit(type='submit') Update my password
+            .add-plan.main-right.closed.link7
+                p.top Add Plan
+                form.plan-form(action='')
+                    .field
+                        p.text NAME
+                        input#planname.input2(type='text' placeholder='Enter plan name' required='')
+                    .field
+                        p.text Price(in $)
+                        input#price.input2(type='number' placeholder='Enter price' required='')
+                    .field
+                        p.text Average Rating
+                        input#rating.input2(type='number' placeholder='Enter average rating' required='' min='1' max='10')
+                    .field
+                        p.text Features List
+                        textarea#features-list.input2(type='text' placeholder='Enter features list' required='')
+                    .field
+                        p.text Duration
+                        input#duration.input2(type='number' placeholder='Enter plan duration' required='')
+                    .field
+                        p.text Discount
+                        input#discount.input2(type='number' placeholder='Enter discount in $' value='0')
+                    .field
+                        p.text Cover Image (Preferred Width >= 1500px)
+                        input#cover-image-input(type='file' name='cover' accept='image/*' required='')
+                    .field
+                        p.text 3 Secondary Images (Preferred Width >= 1000px)
+                        input#secondary-images-input(type='file' name='secondary' accept='image/*' multiple='' required='')
+                    button.submit(type='submit') Submit
+    script(src='/js/profile.js')
+    -const roles = ["admin", "owner"];
+    if(roles.includes(user.role))
+        script.
+            const adminFeatures = document.getElementsByClassName("admin");
+            for (var i=0;i<adminFeatures.length;i++)
+                adminFeatures[i].style.display="block";
+

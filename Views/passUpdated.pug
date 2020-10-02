@@ -1,0 +1,11 @@
+extends base.pug
+block fontAndCSS
+    link(rel='stylesheet' href='/css/reset.css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
+block content
+    .main
+        pp(style="font-family:'Montserrat', sans-serif; text-align: center;") Password updated successfully!
+        a.link(href='/login')
+            span
+                i.fas.fa-arrow-left
+            | Go to Login page

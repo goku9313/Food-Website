@@ -1,0 +1,30 @@
+ul.nav-List
+    li.li1
+        a.feature(href='/#features') FEATURES
+    li.li1
+        a.feature(href='/#details') DETAILS
+    li.li1
+        a.feature(href='/#reviews') REVIEWS
+    li.li1
+        a.feature(href='/#plans') PLANS
+    if(name)
+        li.li1
+            a.feature#name(href='') #{name.split(" ")[0]}
+            .menu
+                .profileList
+                    a.profile.profile-item(href='/profile')
+                        i.fas.fa-user
+                        |Profile
+                    hr.dropHr
+                    a.cart.profile-item(href='/cart')
+                        i.fas.fa-shopping-cart
+                        |Cart
+                    hr.dropHr
+                    a.logout.profile-item(href='/logout')
+                        i.fas.fa-sign-out-alt
+                        |Logout
+    else
+        li.li1
+            a.feature(href='/signup') Sign Up / Log In  
+    li.dropdown
+        img.arrow(src='/images/down-arrow.png' alt='')
